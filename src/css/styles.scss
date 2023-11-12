@@ -1,0 +1,155 @@
+@import "fonts";
+
+$color-disabled: #c6c6c8;
+$color-secondary: #cc4a3d;
+
+body {
+  font-family: CeraPro;
+  font-size: clamp(1.125rem, 2vw, 1.5rem);
+  font-weight: 400;
+  line-height: 130%;
+  color: #000;
+}
+
+.container {
+  max-width: 1200px;
+  padding: 25px 15px;
+  margin: 0 auto;
+}
+
+.mainSection {
+  gap: clamp(25px, 5.45vw, 67px);
+  background-image: linear-gradient(-20deg, #fff 30%, #cc4a3d);
+  background-repeat: no-repeat;
+  background-size: cover;
+
+  &_wrapper {
+    display: flex;
+    justify-content: space-between;
+  }
+
+  &_content {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    flex: 1;
+  }
+
+  &_contentItem {
+    margin-bottom: clamp(20px, 3.25vw, 40px);
+
+    h3 {
+      margin-bottom: clamp(5px, 0.8vw, 10px);
+    }
+  }
+
+  &_title {
+    font-weight: 700;
+    font-size: clamp(2.5rem, 6vw, 4.69rem);
+    line-height: 115%;
+    text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.6);
+    margin-bottom: clamp(25px, 5vw, 60px);
+  }
+
+  &_imageWrapper {
+    flex: 1;
+  }
+
+  &_image {
+    width: 100%;
+    object-fit: cover;
+  }
+}
+
+.stackSection {
+  display: flex;
+  justify-content: space-between;
+  gap: clamp(60px, 8.1vw, 100px);
+  line-height: 115%;
+
+  &_circle {
+    height: 100px;
+    width: 100px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #ececed;
+  }
+
+  &_logosGroup {
+    display: flex;
+    justify-content: space-between;
+    width: 29%;
+  }
+
+  &_logoWrapper {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  &_stack {
+    display: flex;
+    flex: 1;
+  }
+
+  &_stackItem {
+    flex: 1;
+  }
+
+  &_stackTitle {
+    margin-bottom: clamp(10px, 1.67vw, 20px);
+    font-size: clamp(14px, 1.5vw, 18px);
+    text-transform: uppercase;
+    color: $color-disabled;
+  }
+
+  &_stackLine {
+    margin-bottom: clamp(10px, 1.2vw, 15px);
+    color: #000;
+  }
+}
+
+.stagesSection {
+  margin-bottom: clamp(86px, 13vw, 160px);
+  line-height: 115%;
+
+  &_wrapper {
+    display: flex;
+    justify-content: space-between;
+  }
+
+  &_title {
+    margin-bottom: clamp(25px, 5vw, 60px);
+    font-size: clamp(14px, 1.5vw, 18px);
+    text-transform: uppercase;
+    color: $color-secondary;
+  }
+
+  &_column {
+    display: flex;
+    flex: 1;
+    flex-direction: column;
+    padding: 0 15px;
+    gap: clamp(73px, 8.3vw, 103px);
+    border-left: 2px solid $color-secondary;
+    font-size: clamp(1.125rem, 2vw, 1.5rem);
+    font-weight: 400;
+    text-transform: none;
+    color: #000;
+  }
+
+  &_stageWrapper {
+    flex: 1;
+  }
+
+  &_stageItem {
+    margin-bottom: 12px;
+    font-size: clamp(14px, 1.5vw, 18px);
+  }
+
+  &_stageName {
+    color: $color-disabled;
+  }
+}

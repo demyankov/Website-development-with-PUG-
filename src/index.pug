@@ -1,0 +1,60 @@
+-
+  let pageTitle = "Надо брать"
+  let logos = [{alt: "Logo wordpress",link: "images/wordpress.svg"},
+              {alt: "Logo", link: "images/5.svg"},
+              {alt: "Logo", link: "images/3.svg"}]
+  let stack = [{title: "Frontend", list: ["JAVA SCRIPT", "CSS 3","HTML 5"]},
+              {title: "Backend", list: ["WordPress", "SQL","PHP"]},
+              {title: "Integrations", list: ["Company internal services"]}]
+  let stages = [{stage: "STAGE 1", list: ["Competitor analysis", "Target audience analysis","Sitemap development","Development of technical specifications. Preparation for SEO promotion"]},
+              {stage: "STAGE 2", list: ["Selection of references", "Prototyping","Design creation","Creating an adaptive version"]},
+              {stage: "STAGE 3", list: ["HTML /CSS site layout","Function programming","Installation and configuration of modules","Page load optimization","Website testing"]},
+              {stage: "STAGE 4", list: ["Basic content filling","Delivery of the project to the client","Site publishing"]}]
+
+doctype html
+html(lang="en")
+  head
+    title= pageTitle
+    style 
+      include css/normilize.css
+      include css/styles.css
+  body
+    section.mainSection 
+      .container.mainSection_wrapper
+        .mainSection_content          
+          h1.mainSection_title Website Development for law company
+          p.mainSection_contentItem
+            strong STERLING LAWYERS LTD
+            is a law firm based in the UK. The team advises small, medium businesses and private person on business immigration to the UK.
+          .mainSection_contentItem
+            h3 Task from the client:
+            p We needed to create a modern corporate website, which is understandable and user-friendly. We used Wordpress, because the old site was created on this CMS.
+          .mainSection_contentItem
+            h3 Website:
+            a(href="https://sterling-law.co.uk") https://sterling-law.co.uk
+        .mainSection_imageWrapper
+          img(src="images/main.png", alt="Main image").mainSection_image
+    section.container.stackSection
+      ul.stackSection_logosGroup
+        for logo in logos
+          .stackSection_circle
+            li.stackSection_logoWrapper
+              img(src=logo.link, alt=logo.alt)
+      ul.stackSection_stack
+        for item in stack
+          li.stackSection_stackItem 
+            ul
+              h3.stackSection_stackTitle=item.title 
+              for line in item.list
+                li.stackSection_stackLine= line
+    section.container.stagesSection
+      h2.stagesSection_title #Stages_of_work
+      .stagesSection_wrapper
+        for stage in stages
+          ul.stagesSection_column
+            .stagesSection_stageWrapper
+              for item in stage.list 
+                li.stagesSection_stageItem= item 
+            p.stagesSection_stageName= stage.stage
+
+      
