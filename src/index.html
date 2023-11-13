@@ -380,6 +380,45 @@ ol[class], li[class] {
   font-weight: 400;
 }
 
+.pulseCircle {
+  width: clamp(169px, 45vw, 545px);
+  height: clamp(169px, 45vw, 545px);
+  border-radius: 50%;
+  background: radial-gradient(circle closest-side at center, #cc4a3d, #fff);
+  -webkit-animation: pulse 2.5s linear infinite;
+          animation: pulse 2.5s linear infinite;
+}
+
+@-webkit-keyframes pulse {
+  0% {
+    -webkit-transform: scale(0.8);
+            transform: scale(0.8);
+  }
+  50% {
+    -webkit-transform: scale(1.2);
+            transform: scale(1.2);
+  }
+  100% {
+    -webkit-transform: scale(0.8);
+            transform: scale(0.8);
+  }
+}
+
+@keyframes pulse {
+  0% {
+    -webkit-transform: scale(0.8);
+            transform: scale(0.8);
+  }
+  50% {
+    -webkit-transform: scale(1.2);
+            transform: scale(1.2);
+  }
+  100% {
+    -webkit-transform: scale(0.8);
+            transform: scale(0.8);
+  }
+}
+
 body {
   font-family: CeraPro;
   font-size: clamp(1.125rem, 2vw, 1.5rem);
@@ -396,7 +435,7 @@ body {
 
 .mainSection {
   gap: clamp(25px, 5.45vw, 67px);
-  background-image: linear-gradient(-20deg, #fff 30%, #cc4a3d);
+  background-image: linear-gradient(-20deg, #fff 45%, #cc4a3d);
   background-repeat: no-repeat;
   background-size: cover;
 }
@@ -479,6 +518,11 @@ body {
       -ms-flex-pack: center;
           justify-content: center;
   background-color: #ececed;
+  opacity: 1;
+  -webkit-transform: scale(1);
+          transform: scale(1);
+  -webkit-transition: all 0.6s ease-in-out;
+  transition: all 0.6s ease-in-out;
 }
 
 .stackSection_logosGroup {
@@ -510,6 +554,11 @@ body {
   -webkit-box-flex: 1;
       -ms-flex: 1;
           flex: 1;
+  opacity: 1;
+  -webkit-transform: scale(1);
+          transform: scale(1);
+  -webkit-transition: all 0.65s ease-in-out;
+  transition: all 0.65s ease-in-out;
 }
 
 .stackSection_stackItem {
@@ -530,8 +579,22 @@ body {
   color: #000;
 }
 
+.stackSection_hide {
+  opacity: 0;
+  -webkit-transform: scale(0.6);
+          transform: scale(0.6);
+}
+
+.sectionTitleBright {
+  margin-bottom: clamp(25px, 5vw, 60px);
+  font-size: clamp(14px, 1.5vw, 18px);
+  text-transform: uppercase;
+  color: #c24236;
+}
+
 .stagesSection {
-  margin-bottom: clamp(86px, 13vw, 160px);
+  margin-top: clamp(60px, 5.8vw, 70px);
+  margin-bottom: clamp(60px, 5.8vw, 70px);
   line-height: 115%;
 }
 
@@ -542,13 +605,6 @@ body {
   -webkit-box-pack: justify;
       -ms-flex-pack: justify;
           justify-content: space-between;
-}
-
-.stagesSection_title {
-  margin-bottom: clamp(25px, 5vw, 60px);
-  font-size: clamp(14px, 1.5vw, 18px);
-  text-transform: uppercase;
-  color: #cc4a3d;
 }
 
 .stagesSection_column {
@@ -564,11 +620,16 @@ body {
           flex-direction: column;
   padding: 0 15px;
   gap: clamp(73px, 8.3vw, 103px);
-  border-left: 2px solid #cc4a3d;
+  border-left: 2px solid #c24236;
   font-size: clamp(1.125rem, 2vw, 1.5rem);
   font-weight: 400;
   text-transform: none;
   color: #000;
+  opacity: 1;
+  -webkit-transform: scale(1);
+          transform: scale(1);
+  -webkit-transition: all 0.65s ease-in-out;
+  transition: all 0.65s ease-in-out;
 }
 
 .stagesSection_stageWrapper {
@@ -584,6 +645,149 @@ body {
 
 .stagesSection_stageName {
   color: #c6c6c8;
+}
+
+.stagesSection_hide {
+  opacity: 0;
+  -webkit-transform: scale(0.8);
+          transform: scale(0.8);
+}
+
+.sectionWebsiteCreator_content {
+  width: 57%;
+}
+
+.sectionTitle {
+  margin-bottom: clamp(15px, 3.3vw, 40px);
+  font-size: clamp(40px, 8.1vw, 100px);
+  color: #c6c6c8;
+  line-height: 115%;
+}
+
+.mainPageSection {
+  position: relative;
+}
+
+.mainPageSection_imageWrapper {
+  max-width: 1028px;
+  position: relative;
+  margin: 0 auto;
+  z-index: 10;
+}
+
+.mainPageSection_imageWrapper img {
+  position: relative;
+  width: 100%;
+  height: auto;
+  -o-object-fit: cover;
+     object-fit: cover;
+  z-index: 10;
+}
+
+.mainPageSection_imageSecondary {
+  max-width: 97%;
+  position: relative;
+  bottom: 0;
+  -webkit-transform: translateY(-28%);
+          transform: translateY(-28%);
+  display: block;
+  margin: 0 auto;
+  z-index: -1;
+}
+
+.mainPageSection__circlePositionPrimary {
+  position: absolute;
+  top: 0;
+  right: -10%;
+}
+
+.mainPageSection__circlePositionSecondary {
+  position: absolute;
+  top: 30%;
+  left: -15%;
+  width: clamp(140px, 30vw, 368px);
+  height: clamp(140px, 30vw, 368px);
+}
+
+.sectionStatistics {
+  padding: clamp(15px, 3.3vw, 40px) 10px clamp(15px, 3.3vw, 40px) 10px;
+  background-color: #c24236;
+}
+
+.sectionStatistics_content {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  max-width: 1028px;
+  margin: 0 auto;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+  gap: 10px;
+}
+
+.sectionStatistics_item {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -ms-flex-preferred-size: 24%;
+      flex-basis: 24%;
+  padding: clamp(15px, 1.67vw, 20px) 10px 10px 10px;
+  background-color: #a5332d;
+  border-radius: 4px;
+}
+
+.sectionStatistics * {
+  color: #fff;
+}
+
+.sectionStatistics_title {
+  text-align: center;
+  margin: 0 auto;
+  margin-bottom: clamp(15px, 3.3vw, 40px);
+  font-size: clamp(25px, 3.3vw, 40px);
+}
+
+.sectionStatistics_itemValue {
+  margin-bottom: 15px;
+  font-size: clamp(25px, 3.3vw, 40px);
+}
+
+.sectionStatistics_itemText {
+  -webkit-box-flex: 1;
+      -ms-flex: 1;
+          flex: 1;
+  font-size: clamp(14px, 1.5vw, 18px);
+  line-height: 115%;
+}
+
+.sectionServices_item {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  max-width: 60%;
+  width: 100%;
+  margin: 0 auto;
+}
+
+.sectionServices_text {
+  font-weight: 700;
+  padding-top: clamp(14px, 1.5vw, 18px);
+  padding-bottom: clamp(10px, 1.2vw, 14px);
+  min-width: 60%;
+  text-align: center;
 }
 /*# sourceMappingURL=styles.css.map */
     </style>
@@ -609,19 +813,19 @@ body {
     </section>
     <section class="container stackSection">
       <ul class="stackSection_logosGroup">
-        <div class="stackSection_circle">
+        <div class="stackSection_circle stackSection_hide">
           <li class="stackSection_logoWrapper"><img src="images/wordpress.svg" alt="Logo wordpress"></li>
         </div>
-        <div class="stackSection_circle">
+        <div class="stackSection_circle stackSection_hide">
           <li class="stackSection_logoWrapper"><img src="images/5.svg" alt="Logo"></li>
         </div>
-        <div class="stackSection_circle">
+        <div class="stackSection_circle stackSection_hide">
           <li class="stackSection_logoWrapper"><img src="images/3.svg" alt="Logo"></li>
         </div>
       </ul>
       <ul class="stackSection_stack">
         <li class="stackSection_stackItem"> 
-          <ul>
+          <ul class="stackSection_hide">
             <h3 class="stackSection_stackTitle">Frontend</h3>
             <li class="stackSection_stackLine">JAVA SCRIPT</li>
             <li class="stackSection_stackLine">CSS 3</li>
@@ -629,7 +833,7 @@ body {
           </ul>
         </li>
         <li class="stackSection_stackItem"> 
-          <ul>
+          <ul class="stackSection_hide">
             <h3 class="stackSection_stackTitle">Backend</h3>
             <li class="stackSection_stackLine">WordPress</li>
             <li class="stackSection_stackLine">SQL</li>
@@ -637,7 +841,7 @@ body {
           </ul>
         </li>
         <li class="stackSection_stackItem"> 
-          <ul>
+          <ul class="stackSection_hide">
             <h3 class="stackSection_stackTitle">Integrations</h3>
             <li class="stackSection_stackLine">Company internal services</li>
           </ul>
@@ -645,9 +849,9 @@ body {
       </ul>
     </section>
     <section class="container stagesSection">
-      <h2 class="stagesSection_title">#Stages_of_work</h2>
+      <h2 class="sectionTitleBright">#Stages_of_work</h2>
       <div class="stagesSection_wrapper">
-        <ul class="stagesSection_column">
+        <ul class="stagesSection_column stagesSection_hide">
           <div class="stagesSection_stageWrapper">
             <li class="stagesSection_stageItem">Competitor analysis</li>
             <li class="stagesSection_stageItem">Target audience analysis</li>
@@ -656,7 +860,7 @@ body {
           </div>
           <p class="stagesSection_stageName">STAGE 1</p>
         </ul>
-        <ul class="stagesSection_column">
+        <ul class="stagesSection_column stagesSection_hide">
           <div class="stagesSection_stageWrapper">
             <li class="stagesSection_stageItem">Selection of references</li>
             <li class="stagesSection_stageItem">Prototyping</li>
@@ -665,7 +869,7 @@ body {
           </div>
           <p class="stagesSection_stageName">STAGE 2</p>
         </ul>
-        <ul class="stagesSection_column">
+        <ul class="stagesSection_column stagesSection_hide">
           <div class="stagesSection_stageWrapper">
             <li class="stagesSection_stageItem">HTML /CSS site layout</li>
             <li class="stagesSection_stageItem">Function programming</li>
@@ -675,7 +879,7 @@ body {
           </div>
           <p class="stagesSection_stageName">STAGE 3</p>
         </ul>
-        <ul class="stagesSection_column">
+        <ul class="stagesSection_column stagesSection_hide">
           <div class="stagesSection_stageWrapper">
             <li class="stagesSection_stageItem">Basic content filling</li>
             <li class="stagesSection_stageItem">Delivery of the project to the client</li>
@@ -684,6 +888,123 @@ body {
           <p class="stagesSection_stageName">STAGE 4</p>
         </ul>
       </div>
+    </section>
+    <section class="container websiteCreationSection">
+      <h2 class="sectionTitleBright">#Website_creation</h2>
+      <p class="sectionWebsiteCreator_content">The new website design strengthens the company's image as a reliable and open partner.</p>
+      <p class="sectionWebsiteCreator_content">On the main page, we placed information about the company, the main achievements of the company, a bright accent button with a call to action for the user. All this significantly increases the conversion of the site.</p>
+    </section>
+    <section class="container mainPageSection"> 
+      <div class="pulseCircle mainPageSection__circlePositionPrimary"></div>
+      <h2 class="sectionTitle">Main page</h2>
+      <div class="mainPageSection_imageWrapper">
+        <div class="pulseCircle mainPageSection__circlePositionSecondary"></div><img src="images/for-bussiness.png" alt="image"><img class="mainPageSection_imageSecondary" src="images/city.png" alt="city">
+      </div>
+    </section>
+    <section class="sectionStatistics">
+      <div class="container">
+        <h2 class="container sectionStatistics_title">Prefer to talk numbers? So do we:</h2>
+        <div class="sectionStatistics_content">
+          <div class="sectionStatistics_item">
+            <p class="sectionStatistics_itemValue">10 000</p>
+            <p class="sectionStatistics_itemText">&gt; 10k clients</p>
+          </div>
+          <div class="sectionStatistics_item">
+            <p class="sectionStatistics_itemValue">30</p>
+            <p class="sectionStatistics_itemText">&gt; 10 legal professionals</p>
+          </div>
+          <div class="sectionStatistics_item">
+            <p class="sectionStatistics_itemValue">2</p>
+            <p class="sectionStatistics_itemText">dual regulation (SPA &amp; OISC)</p>
+          </div>
+          <div class="sectionStatistics_item">
+            <p class="sectionStatistics_itemValue">3</p>
+            <p class="sectionStatistics_itemText">highest level of accreditation with OISC</p>
+          </div>
+          <div class="sectionStatistics_item">
+            <p class="sectionStatistics_itemValue">500</p>
+            <p class="sectionStatistics_itemText">Legal 500 firm</p>
+          </div>
+          <div class="sectionStatistics_item">
+            <p class="sectionStatistics_itemValue">700</p>
+            <p class="sectionStatistics_itemText">&gt; 700 reviews</p>
+          </div>
+          <div class="sectionStatistics_item">
+            <p class="sectionStatistics_itemValue">4.8/5</p>
+            <p class="sectionStatistics_itemText">&gt; google ranking</p>
+          </div>
+          <div class="sectionStatistics_item">
+            <p class="sectionStatistics_itemValue">10</p>
+            <p class="sectionStatistics_itemText">&gt; 10 years history</p>
+          </div>
+        </div>
+      </div>
+    </section>
+    <section class="sectionServices container">
+      <div class="sectionServices_item"> 
+        <p class="sectionServices_text">Help for Ukranians</p>
+      </div>
+      <div class="sectionServices_item"> 
+        <p class="sectionServices_text">Immigration</p>
+      </div>
+      <div class="sectionServices_item"> 
+        <p class="sectionServices_text">Employment Law</p>
+      </div>
+      <div class="sectionServices_item"> 
+        <p class="sectionServices_text">Business Law</p>
+      </div>
+      <div class="sectionServices_item"> 
+        <p class="sectionServices_text">IP Law</p>
+      </div>
+      <div class="sectionServices_item"> 
+        <p class="sectionServices_text">Family Law</p>
+      </div>
+      <div class="sectionServices_item"> 
+        <p class="sectionServices_text">Criminal Law</p>
+      </div>
+      <div class="sectionServices_item"> 
+        <p class="sectionServices_text">Extradition</p>
+      </div>
+      <div class="sectionServices_item"> 
+        <p class="sectionServices_text">Tax Investigations</p>
+      </div>
+      <script>
+        const wrapperElements = document.querySelectorAll(".sectionServices_item");
+const textElements = document.querySelectorAll(".sectionServices_text");
+
+const count = wrapperElements.length;
+
+const showElementsWithDifferentOpacity = () => {
+  for (let i = 0; i < count; i++) {
+    textElements[i].style.opacity = `${100 - i * 8}%`;
+    wrapperElements[i].style.borderBottom = `1px solid rgba(0,0,0,${
+      1 - 0.9 * Math.random()
+    })`;
+  }
+
+  window.removeEventListener("load", showElementsWithDifferentOpacity);
+};
+
+window.addEventListener("load", showElementsWithDifferentOpacity);
+        const stacks = document.querySelectorAll(".stackSection_hide");
+const stages = document.querySelectorAll(".stagesSection_hide");
+
+const showElements = (className, elements) => {
+  for (let i = 0; i < elements.length; i++) {
+    elements[i].style.transitionDelay = `${0.3 * i}s`;
+    elements[i].classList.remove(className);
+  }
+
+  window.removeEventListener("load", className);
+};
+
+const showStackItems = () => showElements("stackSection_hide", stacks);
+const showStages = () => showElements("stagesSection_hide", stages);
+
+window.addEventListener("load", showStackItems);
+window.addEventListener("load", showStages);
+
+      </script>
     </section>
   </body>
 </html>

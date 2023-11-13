@@ -10,6 +10,15 @@
               {stage: "STAGE 2", list: ["Selection of references", "Prototyping","Design creation","Creating an adaptive version"]},
               {stage: "STAGE 3", list: ["HTML /CSS site layout","Function programming","Installation and configuration of modules","Page load optimization","Website testing"]},
               {stage: "STAGE 4", list: ["Basic content filling","Delivery of the project to the client","Site publishing"]}]
+  let statistics = [{value: "10 000", text: "> 10k clients"},
+                  {value: "30", text: "> 10 legal professionals"},
+                  {value: "2", text: "dual regulation (SPA & OISC)"},
+                  {value: "3", text: "highest level of accreditation with OISC"},
+                  {value: "500", text: "Legal 500 firm"},
+                  {value: "700", text: "> 700 reviews"},
+                  {value: "4.8/5", text: "> google ranking"},
+                  {value: "10", text: "> 10 years history"},]
+  let services = ["Help for Ukranians", "Immigration", "Employment Law", "Business Law", "IP Law", "Family Law", "Criminal Law", "Extradition", "Tax Investigations",]
 
 doctype html
 html(lang="en")
@@ -37,24 +46,51 @@ html(lang="en")
     section.container.stackSection
       ul.stackSection_logosGroup
         for logo in logos
-          .stackSection_circle
+          .stackSection_circle.stackSection_hide
             li.stackSection_logoWrapper
               img(src=logo.link, alt=logo.alt)
       ul.stackSection_stack
         for item in stack
           li.stackSection_stackItem 
-            ul
+            ul.stackSection_hide
               h3.stackSection_stackTitle=item.title 
               for line in item.list
                 li.stackSection_stackLine= line
     section.container.stagesSection
-      h2.stagesSection_title #Stages_of_work
+      h2.sectionTitleBright #Stages_of_work
       .stagesSection_wrapper
         for stage in stages
-          ul.stagesSection_column
+          ul.stagesSection_column.stagesSection_hide
             .stagesSection_stageWrapper
               for item in stage.list 
                 li.stagesSection_stageItem= item 
             p.stagesSection_stageName= stage.stage
+    section.container.websiteCreationSection
+      h2.sectionTitleBright #Website_creation
+      p.sectionWebsiteCreator_content The new website design strengthens the company's image as a reliable and open partner.
+      p.sectionWebsiteCreator_content On the main page, we placed information about the company, the main achievements of the company, a bright accent button with a call to action for the user. All this significantly increases the conversion of the site.
+    section.container.mainPageSection 
+      .pulseCircle.mainPageSection__circlePositionPrimary
+      h2.sectionTitle Main page
+      .mainPageSection_imageWrapper
+        .pulseCircle.mainPageSection__circlePositionSecondary
+        img(src="images/for-bussiness.png", alt="image")
+        img(src="images/city.png", alt="city").mainPageSection_imageSecondary
+    section.sectionStatistics
+      .container
+        h2.container.sectionStatistics_title Prefer to talk numbers? So do we:
+        .sectionStatistics_content
+          each item in statistics 
+            .sectionStatistics_item
+              p.sectionStatistics_itemValue= item.value
+              p.sectionStatistics_itemText= item.text
+    section.sectionServices.container
+      each item in services
+        .sectionServices_item 
+          p.sectionServices_text= item
 
-      
+
+
+      script
+            include js/showElementsWithDifferentOpacity.js
+            include js/showElements.js

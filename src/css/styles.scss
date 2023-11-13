@@ -1,7 +1,6 @@
 @import "fonts";
-
-$color-disabled: #c6c6c8;
-$color-secondary: #cc4a3d;
+@import "variables";
+@import "pulseCircle";
 
 body {
   font-family: CeraPro;
@@ -19,7 +18,7 @@ body {
 
 .mainSection {
   gap: clamp(25px, 5.45vw, 67px);
-  background-image: linear-gradient(-20deg, #fff 30%, #cc4a3d);
+  background-image: linear-gradient(-20deg, #fff 45%, $color-gradient);
   background-repeat: no-repeat;
   background-size: cover;
 
@@ -75,6 +74,9 @@ body {
     align-items: center;
     justify-content: center;
     background-color: #ececed;
+    opacity: 1;
+    transform: scale(1);
+    transition: all 0.6s ease-in-out;
   }
 
   &_logosGroup {
@@ -92,6 +94,9 @@ body {
   &_stack {
     display: flex;
     flex: 1;
+    opacity: 1;
+    transform: scale(1);
+    transition: all 0.65s ease-in-out;
   }
 
   &_stackItem {
@@ -109,22 +114,28 @@ body {
     margin-bottom: clamp(10px, 1.2vw, 15px);
     color: #000;
   }
+
+  &_hide {
+    opacity: 0;
+    transform: scale(0.6);
+  }
+}
+
+.sectionTitleBright {
+  margin-bottom: clamp(25px, 5vw, 60px);
+  font-size: clamp(14px, 1.5vw, 18px);
+  text-transform: uppercase;
+  color: $color-secondary;
 }
 
 .stagesSection {
-  margin-bottom: clamp(86px, 13vw, 160px);
+  margin-top: clamp(60px, 5.8vw, 70px);
+  margin-bottom: clamp(60px, 5.8vw, 70px);
   line-height: 115%;
 
   &_wrapper {
     display: flex;
     justify-content: space-between;
-  }
-
-  &_title {
-    margin-bottom: clamp(25px, 5vw, 60px);
-    font-size: clamp(14px, 1.5vw, 18px);
-    text-transform: uppercase;
-    color: $color-secondary;
   }
 
   &_column {
@@ -138,6 +149,9 @@ body {
     font-weight: 400;
     text-transform: none;
     color: #000;
+    opacity: 1;
+    transform: scale(1);
+    transition: all 0.65s ease-in-out;
   }
 
   &_stageWrapper {
@@ -151,5 +165,129 @@ body {
 
   &_stageName {
     color: $color-disabled;
+  }
+
+  &_hide {
+    opacity: 0;
+    transform: scale(0.8);
+  }
+}
+
+.sectionWebsiteCreator {
+  &_content {
+    width: 57%;
+  }
+}
+.sectionTitle {
+  margin-bottom: clamp(15px, 3.3vw, 40px);
+  font-size: clamp(40px, 8.1vw, 100px);
+  color: $color-disabled;
+  line-height: 115%;
+}
+
+.mainPageSection {
+  position: relative;
+
+  &_imageWrapper {
+    max-width: 1028px;
+    position: relative;
+    margin: 0 auto;
+    z-index: 10;
+
+    img {
+      position: relative;
+      width: 100%;
+      height: auto;
+      object-fit: cover;
+      z-index: 10;
+    }
+  }
+
+  &_imageSecondary {
+    max-width: 97%;
+    position: relative;
+    bottom: 0;
+    transform: translateY(-28%);
+    display: block;
+    margin: 0 auto;
+    z-index: -1;
+  }
+
+  &__circlePositionPrimary {
+    position: absolute;
+    top: 0;
+    right: -10%;
+  }
+
+  &__circlePositionSecondary {
+    position: absolute;
+    top: 30%;
+    left: -15%;
+    width: clamp(140px, 30vw, 368px);
+    height: clamp(140px, 30vw, 368px);
+  }
+}
+
+.sectionStatistics {
+  padding: clamp(15px, 3.3vw, 40px) 10px clamp(15px, 3.3vw, 40px) 10px;
+  background-color: $color-secondary;
+
+  &_content {
+    display: flex;
+    max-width: 1028px;
+    margin: 0 auto;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: $gap-1;
+  }
+
+  &_item {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    flex-basis: 24%;
+    padding: clamp(15px, 1.67vw, 20px) 10px 10px 10px;
+    background-color: #a5332d;
+    border-radius: 4px;
+  }
+
+  * {
+    color: #fff;
+  }
+
+  &_title {
+    text-align: center;
+    margin: 0 auto;
+    margin-bottom: clamp(15px, 3.3vw, 40px);
+    font-size: clamp(25px, 3.3vw, 40px);
+  }
+
+  &_itemValue {
+    margin-bottom: 15px;
+    font-size: clamp(25px, 3.3vw, 40px);
+  }
+
+  &_itemText {
+    flex: 1;
+    font-size: clamp(14px, 1.5vw, 18px);
+    line-height: 115%;
+  }
+}
+
+.sectionServices {
+  &_item {
+    display: flex;
+    justify-content: center;
+    max-width: 60%;
+    width: 100%;
+    margin: 0 auto;
+  }
+
+  &_text {
+    font-weight: 700;
+    padding-top: clamp(14px, 1.5vw, 18px);
+    padding-bottom: clamp(10px, 1.2vw, 14px);
+    min-width: 60%;
+    text-align: center;
   }
 }

@@ -1,0 +1,23 @@
+.pulseCircle {
+  width: clamp(169px, 45vw, 545px);
+  height: clamp(169px, 45vw, 545px);
+  border-radius: 50%;
+  background: radial-gradient(
+    circle closest-side at center,
+    $color-gradient,
+    #fff
+  );
+  animation: pulse 2.5s linear infinite;
+}
+
+@keyframes pulse {
+  0% {
+    transform: scale(0.8);
+  }
+  50% {
+    transform: scale(1.2);
+  }
+  100% {
+    transform: scale(0.8);
+  }
+}

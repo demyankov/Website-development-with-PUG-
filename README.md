@@ -8,4 +8,4 @@
 
 # Used
 
-PUG, SCSS
+PUG, JS, SCSS

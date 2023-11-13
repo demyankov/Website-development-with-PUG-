@@ -10,6 +10,45 @@
   font-weight: 400;
 }
 
+.pulseCircle {
+  width: clamp(169px, 45vw, 545px);
+  height: clamp(169px, 45vw, 545px);
+  border-radius: 50%;
+  background: radial-gradient(circle closest-side at center, #cc4a3d, #fff);
+  -webkit-animation: pulse 2.5s linear infinite;
+          animation: pulse 2.5s linear infinite;
+}
+
+@-webkit-keyframes pulse {
+  0% {
+    -webkit-transform: scale(0.8);
+            transform: scale(0.8);
+  }
+  50% {
+    -webkit-transform: scale(1.2);
+            transform: scale(1.2);
+  }
+  100% {
+    -webkit-transform: scale(0.8);
+            transform: scale(0.8);
+  }
+}
+
+@keyframes pulse {
+  0% {
+    -webkit-transform: scale(0.8);
+            transform: scale(0.8);
+  }
+  50% {
+    -webkit-transform: scale(1.2);
+            transform: scale(1.2);
+  }
+  100% {
+    -webkit-transform: scale(0.8);
+            transform: scale(0.8);
+  }
+}
+
 body {
   font-family: CeraPro;
   font-size: clamp(1.125rem, 2vw, 1.5rem);
@@ -26,7 +65,7 @@ body {
 
 .mainSection {
   gap: clamp(25px, 5.45vw, 67px);
-  background-image: linear-gradient(-20deg, #fff 30%, #cc4a3d);
+  background-image: linear-gradient(-20deg, #fff 45%, #cc4a3d);
   background-repeat: no-repeat;
   background-size: cover;
 }
@@ -109,6 +148,11 @@ body {
       -ms-flex-pack: center;
           justify-content: center;
   background-color: #ececed;
+  opacity: 1;
+  -webkit-transform: scale(1);
+          transform: scale(1);
+  -webkit-transition: all 0.6s ease-in-out;
+  transition: all 0.6s ease-in-out;
 }
 
 .stackSection_logosGroup {
@@ -140,6 +184,11 @@ body {
   -webkit-box-flex: 1;
       -ms-flex: 1;
           flex: 1;
+  opacity: 1;
+  -webkit-transform: scale(1);
+          transform: scale(1);
+  -webkit-transition: all 0.65s ease-in-out;
+  transition: all 0.65s ease-in-out;
 }
 
 .stackSection_stackItem {
@@ -160,8 +209,22 @@ body {
   color: #000;
 }
 
+.stackSection_hide {
+  opacity: 0;
+  -webkit-transform: scale(0.6);
+          transform: scale(0.6);
+}
+
+.sectionTitleBright {
+  margin-bottom: clamp(25px, 5vw, 60px);
+  font-size: clamp(14px, 1.5vw, 18px);
+  text-transform: uppercase;
+  color: #c24236;
+}
+
 .stagesSection {
-  margin-bottom: clamp(86px, 13vw, 160px);
+  margin-top: clamp(60px, 5.8vw, 70px);
+  margin-bottom: clamp(60px, 5.8vw, 70px);
   line-height: 115%;
 }
 
@@ -172,13 +235,6 @@ body {
   -webkit-box-pack: justify;
       -ms-flex-pack: justify;
           justify-content: space-between;
-}
-
-.stagesSection_title {
-  margin-bottom: clamp(25px, 5vw, 60px);
-  font-size: clamp(14px, 1.5vw, 18px);
-  text-transform: uppercase;
-  color: #cc4a3d;
 }
 
 .stagesSection_column {
@@ -194,11 +250,16 @@ body {
           flex-direction: column;
   padding: 0 15px;
   gap: clamp(73px, 8.3vw, 103px);
-  border-left: 2px solid #cc4a3d;
+  border-left: 2px solid #c24236;
   font-size: clamp(1.125rem, 2vw, 1.5rem);
   font-weight: 400;
   text-transform: none;
   color: #000;
+  opacity: 1;
+  -webkit-transform: scale(1);
+          transform: scale(1);
+  -webkit-transition: all 0.65s ease-in-out;
+  transition: all 0.65s ease-in-out;
 }
 
 .stagesSection_stageWrapper {
@@ -214,5 +275,148 @@ body {
 
 .stagesSection_stageName {
   color: #c6c6c8;
+}
+
+.stagesSection_hide {
+  opacity: 0;
+  -webkit-transform: scale(0.8);
+          transform: scale(0.8);
+}
+
+.sectionWebsiteCreator_content {
+  width: 57%;
+}
+
+.sectionTitle {
+  margin-bottom: clamp(15px, 3.3vw, 40px);
+  font-size: clamp(40px, 8.1vw, 100px);
+  color: #c6c6c8;
+  line-height: 115%;
+}
+
+.mainPageSection {
+  position: relative;
+}
+
+.mainPageSection_imageWrapper {
+  max-width: 1028px;
+  position: relative;
+  margin: 0 auto;
+  z-index: 10;
+}
+
+.mainPageSection_imageWrapper img {
+  position: relative;
+  width: 100%;
+  height: auto;
+  -o-object-fit: cover;
+     object-fit: cover;
+  z-index: 10;
+}
+
+.mainPageSection_imageSecondary {
+  max-width: 97%;
+  position: relative;
+  bottom: 0;
+  -webkit-transform: translateY(-28%);
+          transform: translateY(-28%);
+  display: block;
+  margin: 0 auto;
+  z-index: -1;
+}
+
+.mainPageSection__circlePositionPrimary {
+  position: absolute;
+  top: 0;
+  right: -10%;
+}
+
+.mainPageSection__circlePositionSecondary {
+  position: absolute;
+  top: 30%;
+  left: -15%;
+  width: clamp(140px, 30vw, 368px);
+  height: clamp(140px, 30vw, 368px);
+}
+
+.sectionStatistics {
+  padding: clamp(15px, 3.3vw, 40px) 10px clamp(15px, 3.3vw, 40px) 10px;
+  background-color: #c24236;
+}
+
+.sectionStatistics_content {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  max-width: 1028px;
+  margin: 0 auto;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+  gap: 10px;
+}
+
+.sectionStatistics_item {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -ms-flex-preferred-size: 24%;
+      flex-basis: 24%;
+  padding: clamp(15px, 1.67vw, 20px) 10px 10px 10px;
+  background-color: #a5332d;
+  border-radius: 4px;
+}
+
+.sectionStatistics * {
+  color: #fff;
+}
+
+.sectionStatistics_title {
+  text-align: center;
+  margin: 0 auto;
+  margin-bottom: clamp(15px, 3.3vw, 40px);
+  font-size: clamp(25px, 3.3vw, 40px);
+}
+
+.sectionStatistics_itemValue {
+  margin-bottom: 15px;
+  font-size: clamp(25px, 3.3vw, 40px);
+}
+
+.sectionStatistics_itemText {
+  -webkit-box-flex: 1;
+      -ms-flex: 1;
+          flex: 1;
+  font-size: clamp(14px, 1.5vw, 18px);
+  line-height: 115%;
+}
+
+.sectionServices_item {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  max-width: 60%;
+  width: 100%;
+  margin: 0 auto;
+}
+
+.sectionServices_text {
+  font-weight: 700;
+  padding-top: clamp(14px, 1.5vw, 18px);
+  padding-bottom: clamp(10px, 1.2vw, 14px);
+  min-width: 60%;
+  text-align: center;
 }
 /*# sourceMappingURL=styles.css.map */
