@@ -684,7 +684,11 @@ body {
   z-index: 10;
 }
 
-.mainPageSection_imageSecondary {
+.mainPageSection_imageWrapper img:first-of-type {
+  z-index: 20;
+}
+
+.mainPageSection__imageSecondary {
   max-width: 97%;
   position: relative;
   bottom: 0;
@@ -692,7 +696,7 @@ body {
           transform: translateY(-28%);
   display: block;
   margin: 0 auto;
-  z-index: -1;
+  z-index: 2;
 }
 
 .mainPageSection__circlePositionPrimary {
@@ -788,6 +792,73 @@ body {
   padding-bottom: clamp(10px, 1.2vw, 14px);
   min-width: 60%;
   text-align: center;
+}
+
+.sectionInternal_header {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  max-width: 1028px;
+  margin: 0 auto;
+  margin-bottom: clamp(20px, 3.3vw, 40px);
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.sectionInternal_headerText {
+  max-width: 32%;
+}
+
+.sectionInternal_imagesWrapper {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  position: relative;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+}
+
+.sectionInternal_item {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  gap: clamp(16px, 2.6vw, 32px);
+  position: relative;
+  -webkit-box-flex: 1;
+      -ms-flex: 1;
+          flex: 1;
+  z-index: 10;
+}
+
+.sectionInternal_item img {
+  width: 100%;
+  height: auto;
+  -o-object-fit: cover;
+     object-fit: cover;
+}
+
+.sectionInternal__firstItemPosition {
+  left: -3%;
+}
+
+.sectionInternal__lastItemPosition {
+  right: -3%;
+}
+
+.sectionInternal__circleFirstPosition {
+  position: absolute;
+  top: 25%;
+  left: 10%;
+  width: clamp(110px, 35vw, 436px);
 }
 /*# sourceMappingURL=styles.css.map */
     </style>
@@ -898,7 +969,7 @@ body {
       <div class="pulseCircle mainPageSection__circlePositionPrimary"></div>
       <h2 class="sectionTitle">Main page</h2>
       <div class="mainPageSection_imageWrapper">
-        <div class="pulseCircle mainPageSection__circlePositionSecondary"></div><img src="images/for-bussiness.png" alt="image"><img class="mainPageSection_imageSecondary" src="images/city.png" alt="city">
+        <div class="pulseCircle mainPageSection__circlePositionSecondary"></div><img src="images/for-bussiness.png" alt="image"><img class="mainPageSection__imageSecondary" src="images/city.png" alt="city">
       </div>
     </section>
     <section class="sectionStatistics">
@@ -967,6 +1038,18 @@ body {
       </div>
       <div class="sectionServices_item"> 
         <p class="sectionServices_text">Tax Investigations</p>
+      </div>
+    </section>
+    <section class="sectionInternal container">
+      <div class="sectionInternal_header">     
+        <h2 class="sectionTitle">Internal pages</h2>
+        <p class="sectionInternal_headerText">All internal pages are created in a single concept.</p>
+      </div>
+      <div class="sectionInternal_imagesWrapper">
+        <div class="pulseCircle sectionInternal__circleFirstPosition"></div>
+        <div class="sectionInternal_item sectionInternal__firstItemPosition"><img src="images/internal-1.png" alt="image"><img src="images/internal-2.png" alt="image"></div>
+        <div class="sectionInternal_item"><img src="images/internal-3.png" alt="image"></div>
+        <div class="sectionInternal_item sectionInternal__lastItemPosition"><img src="images/internal-4.png" alt="image"></div>
       </div>
       <script>
         const wrapperElements = document.querySelectorAll(".sectionServices_item");

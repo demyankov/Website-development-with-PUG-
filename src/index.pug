@@ -75,7 +75,7 @@ html(lang="en")
       .mainPageSection_imageWrapper
         .pulseCircle.mainPageSection__circlePositionSecondary
         img(src="images/for-bussiness.png", alt="image")
-        img(src="images/city.png", alt="city").mainPageSection_imageSecondary
+        img(src="images/city.png", alt="city").mainPageSection__imageSecondary
     section.sectionStatistics
       .container
         h2.container.sectionStatistics_title Prefer to talk numbers? So do we:
@@ -88,6 +88,21 @@ html(lang="en")
       each item in services
         .sectionServices_item 
           p.sectionServices_text= item
+    section.sectionInternal.container
+      .sectionInternal_header      
+        h2.sectionTitle Internal pages
+        p.sectionInternal_headerText All internal pages are created in a single concept.
+      .sectionInternal_imagesWrapper
+        .pulseCircle.sectionInternal__circleFirstPosition
+        .sectionInternal_item.sectionInternal__firstItemPosition
+          img(src="images/internal-1.png", alt="image")
+          img(src="images/internal-2.png", alt="image")
+        .sectionInternal_item
+          img(src="images/internal-3.png", alt="image")
+        .sectionInternal_item.sectionInternal__lastItemPosition
+          img(src="images/internal-4.png", alt="image")
+
+
 
 
 
