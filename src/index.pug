@@ -1,49 +1,5 @@
--
-  let pageTitle = "Надо брать"
-  let logos = [{alt: "Logo wordpress",link: "images/wordpress.svg"},
-    {alt: "Logo", link: "images/5.svg"},
-    {alt: "Logo", link: "images/3.svg"}]
-  let stack = [{title: "Frontend", list: ["JAVA SCRIPT", "CSS 3","HTML 5"]},
-    {title: "Backend", list: ["WordPress", "SQL","PHP"]},
-    {title: "Integrations", list: ["Company internal services"]}]
-  let stages = [{stage: "STAGE 1", list: ["Competitor analysis", "Target audience analysis","Sitemap development","Development of technical specifications. Preparation for SEO promotion"]},
-    {stage: "STAGE 2", list: ["Selection of references", "Prototyping","Design creation","Creating an adaptive version"]},
-    {stage: "STAGE 3", list: ["HTML /CSS site layout","Function programming","Installation and configuration of modules","Page load optimization","Website testing"]},
-    {stage: "STAGE 4", list: ["Basic content filling","Delivery of the project to the client","Site publishing"]}]
-  let statistics = [{value: "10 000", text: "> 10k clients"},
-    {value: "30", text: "> 10 legal professionals"},
-    {value: "2", text: "dual regulation (SPA & OISC)"},
-    {value: "3", text: "highest level of accreditation with OISC"},
-    {value: "500", text: "Legal 500 firm"},
-    {value: "700", text: "> 700 reviews"},
-    {value: "4.8/5", text: "> google ranking"},
-    {value: "10", text: "> 10 years history"},]
-  let services = ["Help for Ukranians", "Immigration", "Employment Law", "Business Law", "IP Law", "Family Law", "Criminal Law", "Extradition", "Tax Investigations",]
-
-mixin statisticsItem(item)
-  .sectionStatistics_item
-    p.sectionStatistics_itemValue= item.value
-    p.sectionStatistics_itemText= item.text
-
-mixin logoItem(logo)
-  .stackSection_circle.stackSection_hide
-    li.stackSection_logoWrapper
-      img(src=logo.link, alt=logo.alt)
-
-mixin stackGroup(item)
-  li.stackSection_stackItem 
-    ul.stackSection_hide
-      h3.stackSection_stackTitle=item.title 
-      for line in item.list
-        li.stackSection_stackLine= line
-
-mixin stage(stageData)
-  ul.stagesSection_column.stagesSection_hide
-    .stagesSection_stageWrapper
-      for item in stageData.list 
-        li.stagesSection_stageItem= item 
-    p.stagesSection_stageName= stageData.stage
-
+include config/variables.pug
+include config/mixins.pug
 
 doctype html
 html(lang="en")
@@ -55,8 +11,8 @@ html(lang="en")
   body
     section.mainSection 
       .container.mainSection_wrapper
-        .mainSection_content          
-          h1.mainSection_title Website Development for law company
+        h1.mainSection_title Website Development for law company
+        div.mainSection_contentWrapper  
           p.mainSection_contentItem
             strong STERLING LAWYERS LTD
             is a law firm based in the UK. The team advises small, medium businesses and private person on business immigration to the UK.
@@ -80,10 +36,10 @@ html(lang="en")
       .stagesSection_wrapper
         for stageData in stages
           +stage(stageData)
-    section.container.websiteCreationSection
+    section.container.sectionWebsiteCreation
       h2.sectionTitleBright #Website_creation
-      p.sectionWebsiteCreator_content The new website design strengthens the company's image as a reliable and open partner.
-      p.sectionWebsiteCreator_content On the main page, we placed information about the company, the main achievements of the company, a bright accent button with a call to action for the user. All this significantly increases the conversion of the site.
+      p.sectionWebsiteCreation_content The new website design strengthens the company's image as a reliable and open partner.
+      p.sectionWebsiteCreation_content On the main page, we placed information about the company, the main achievements of the company, a bright accent button with a call to action for the user. All this significantly increases the conversion of the site.
     section.container.mainPageSection 
       .pulseCircle.mainPageSection__circlePositionPrimary
       h2.sectionTitle Main page
@@ -106,10 +62,6 @@ html(lang="en")
         h2.sectionTitle Internal pages
         p.sectionInternal_headerText All internal pages are created in a single concept.
       .sectionInternal_imagesWrapper
-        .pulseCircle.sectionInternal__circleFirst
-        .pulseCircle.sectionInternal__circleSecond
-        .pulseCircle.sectionInternal__circleThird
-        .pulseCircle.sectionInternal__circleFourth
         .sectionInternal_item.sectionInternal__firstItem
           img(src="images/internal-1.png" alt="image")
           img(src="images/internal-2.png" alt="image")
@@ -117,9 +69,32 @@ html(lang="en")
           img(src="images/internal-3.png" alt="image")
         .sectionInternal_item.sectionInternal__lastItem
           img(src="images/internal-4.png" alt="image")
+        .pulseCircle.sectionInternal__circleFirst
+        .pulseCircle.sectionInternal__circleSecond
+        .pulseCircle.sectionInternal__circleThird
+        .pulseCircle.sectionInternal__circleFourth
+    section.sectionColors.container
+      .sectionColors_header
+        h2.sectionTitle.sectionColors_title Colors          
+        ul.sectionColors_colorsGroup
+          for color in colors
+            li.sectionColors_colorItem.sectionColors__colorItemHide         
+              .sectionColors_backgroundWrapper                
+                p.sectionColors_colorText= color  
+        .sectionColors_headerItem          
+          img(src="images/mobile.png", alt="phone").sectionColors_img
+      .sectionColors_footer
+        .sectionColors_footerItem
+          img(src="images/mobiles.png", alt="phone").sectionColors_img
+        .sectionColors_footerItem
+          h2.sectionTitle Cera Pro 
+          .sectionColors_fontWrapper
+            while countLetters < 7 
+              p.sectionColors_letter.sectionColors__letterHide AA
+              - countLetters += 1;
+      section.container
+        h2.sectionTitle.mainSection_title TO BE CONTINUED...
 
-
-
-      script
-        include js/showElementsWithDifferentOpacity.js
-        include js/showElements.js
+      script 
+        include js/showWithObserver.js 
+        include js/showElementsWithDifferentOpacity.js       

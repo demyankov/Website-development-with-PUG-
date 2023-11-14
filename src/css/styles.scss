@@ -12,30 +12,35 @@ body {
 
 .container {
   max-width: 1200px;
-  padding: 25px 15px;
+  padding: 0 15px;
   margin: 0 auto;
 }
 
 .mainSection {
-  gap: clamp(25px, 5.45vw, 67px);
   background-image: linear-gradient(-20deg, #fff 45%, $color-gradient);
   background-repeat: no-repeat;
   background-size: cover;
+  padding-top: 16px;
 
   &_wrapper {
-    display: flex;
-    justify-content: space-between;
+    display: grid;
+    grid-template-areas:
+      "title image"
+      "content image";
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-rows: repeat(2, auto);
+    gap: clamp(25px, 5.45vw, 67px);
   }
 
-  &_content {
+  &_contentWrapper {
+    grid-area: content;
     display: flex;
     flex-direction: column;
     justify-content: center;
-    flex: 1;
   }
 
   &_contentItem {
-    margin-bottom: clamp(20px, 3.25vw, 40px);
+    margin-bottom: clamp(30px, 3.25vw, 40px);
 
     h3 {
       margin-bottom: clamp(5px, 0.8vw, 10px);
@@ -43,6 +48,7 @@ body {
   }
 
   &_title {
+    grid-area: title;
     font-weight: 700;
     font-size: clamp(2.5rem, 6vw, 4.69rem);
     line-height: 115%;
@@ -51,18 +57,42 @@ body {
   }
 
   &_imageWrapper {
-    flex: 1;
+    grid-area: image;
+    display: flex;
+    justify-content: center;
   }
 
   &_image {
     width: 100%;
-    object-fit: cover;
+    // object-fit: cover;
+  }
+
+  @media screen and (max-width: $small) {
+    &_wrapper {
+      grid-template-areas:
+        "title"
+        "image"
+        "content";
+      grid-template-columns: 1fr;
+      grid-template-rows: repeat(3, auto);
+    }
+
+    &_image {
+      width: 70%;
+    }
+  }
+
+  @media screen and (max-width: $extraSmall) {
+    &_image {
+      width: 100%;
+    }
   }
 }
 
 .stackSection {
   display: flex;
   justify-content: space-between;
+  flex-wrap: wrap;
   gap: clamp(60px, 8.1vw, 100px);
   line-height: 115%;
 
@@ -81,8 +111,10 @@ body {
 
   &_logosGroup {
     display: flex;
+    gap: 10px;
     justify-content: space-between;
     width: 29%;
+    min-width: 330px;
   }
 
   &_logoWrapper {
@@ -93,7 +125,9 @@ body {
 
   &_stack {
     display: flex;
+    flex-wrap: wrap;
     flex: 1;
+    gap: 15px;
     opacity: 1;
     transform: scale(1);
     transition: all 0.65s ease-in-out;
@@ -119,6 +153,19 @@ body {
     opacity: 0;
     transform: scale(0.6);
   }
+
+  @media screen and (max-width: $small) {
+    &_logosGroup {
+      width: 100%;
+      justify-content: space-around;
+    }
+  }
+
+  @media screen and (max-width: $extraSmall) {
+    &_stackItem {
+      min-width: 45%;
+    }
+  }
 }
 
 .sectionTitleBright {
@@ -129,13 +176,15 @@ body {
 }
 
 .stagesSection {
-  margin-top: clamp(60px, 5.8vw, 70px);
-  margin-bottom: clamp(60px, 5.8vw, 70px);
+  margin-top: clamp(20px, 5.5vw, 70px);
+  margin-bottom: clamp(20px, 5.8vw, 70px);
   line-height: 115%;
 
   &_wrapper {
     display: flex;
     justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 16px;
   }
 
   &_column {
@@ -143,7 +192,7 @@ body {
     flex: 1;
     flex-direction: column;
     padding: 0 15px;
-    gap: clamp(73px, 8.3vw, 103px);
+    gap: clamp(40px, 8.3vw, 103px);
     border-left: 2px solid $color-secondary;
     font-size: clamp(1.125rem, 2vw, 1.5rem);
     font-weight: 400;
@@ -171,13 +220,37 @@ body {
     opacity: 0;
     transform: scale(0.8);
   }
-}
 
-.sectionWebsiteCreator {
-  &_content {
-    width: 57%;
+  @media screen and (max-width: $small) {
+    &_wrapper {
+      flex-direction: column;
+    }
+
+    &_column {
+      border-left: none;
+      border-top: 2px solid $color-secondary;
+      padding-top: 10px;
+      flex-direction: row-reverse;
+    }
   }
 }
+
+.sectionWebsiteCreation {
+  margin-bottom: clamp(40px, 6.6vw, 80px);
+
+  &_content {
+    width: 57%;
+
+    @media screen and (max-width: $small) {
+      width: 70%;
+    }
+
+    @media screen and (max-width: $extraSmall) {
+      width: 100%;
+    }
+  }
+}
+
 .sectionTitle {
   margin-bottom: clamp(15px, 3.3vw, 40px);
   font-size: clamp(40px, 8.1vw, 100px);
@@ -220,7 +293,7 @@ body {
   &__circlePositionPrimary {
     position: absolute;
     top: 0;
-    right: -10%;
+    right: -5%;
   }
 
   &__circlePositionSecondary {
@@ -229,6 +302,14 @@ body {
     left: -15%;
     width: clamp(140px, 30vw, 368px);
     height: clamp(140px, 30vw, 368px);
+  }
+
+  @media screen and (max-width: $small) {
+    &__circlePositionPrimary {
+      position: absolute;
+      top: 8%;
+      right: 0;
+    }
   }
 }
 
@@ -276,9 +357,16 @@ body {
     font-size: clamp(14px, 1.5vw, 18px);
     line-height: 115%;
   }
+
+  @media screen and (max-width: $small) {
+    display: none;
+  }
 }
 
 .sectionServices {
+  padding: clamp(20px, 5vw, 40px) 0;
+  position: relative;
+
   &_item {
     display: flex;
     justify-content: center;
@@ -294,9 +382,15 @@ body {
     min-width: 60%;
     text-align: center;
   }
+
+  @media screen and (max-width: $small) {
+    transform: translateY(-9%);
+  }
 }
 
 .sectionInternal {
+  overflow: hidden;
+
   &_header {
     display: flex;
     max-width: 1028px;
@@ -314,6 +408,7 @@ body {
     display: flex;
     position: relative;
     justify-content: space-between;
+    align-items: flex-start;
   }
 
   &_item {
@@ -322,22 +417,29 @@ body {
     gap: clamp(16px, 2.6vw, 32px);
     position: relative;
     flex: 1;
-    z-index: 10;    
-    
+    z-index: 10;
+
     &::after {
       position: absolute;
       content: "";
       width: 100%;
-      height: 70%;
+      height: 80%;
       bottom: 0;
       left: 0;
-      background: linear-gradient(0deg, rgba(255,255,255,0.7), rgba(255,255,255,0));
+      background: linear-gradient(
+        0deg,
+        rgba(255, 255, 255, 1),
+        rgba(255, 255, 255, 0)
+      );
     }
 
-    //  &:first-of-type {
-    //     height: 20%;
-    //     border: 5px solid #000;
-    //   }
+    &:nth-child(1)::after {
+      height: 20%;
+    }
+
+    &:nth-child(2)::after {
+      height: 20%;
+    }
 
     img {
       width: 100%;
@@ -347,15 +449,11 @@ body {
   }
 
   &__firstItem {
-    left: -3%;        
-    transform: scaleY(0.8);
-    transform-origin: right top    
+    left: -3%;
   }
 
   &__lastItem {
     right: -3%;
-    transform: scaleY(0.8);
-    transform-origin: left top 
   }
 
   &__circleFirst {
@@ -384,5 +482,145 @@ body {
     bottom: 6%;
     left: 20%;
     width: clamp(78px, 23vw, 283px);
+  }
+
+  @media screen and (max-width: $small) {
+    &_header {
+      display: block;
+    }
+
+    &_headerText {
+      max-width: 90%;
+    }
+  }
+}
+
+.sectionColors {
+  &_header {
+    display: grid;
+    grid-template-areas:
+      "title photo"
+      "colors photo";
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-rows: 60px auto;
+    gap: clamp(15px, 6.8vw, 84px);
+    margin-bottom: 40px;
+  }
+
+  &_title {
+    grid-area: title;
+  }
+
+  &_img {
+    grid-area: photo;
+    width: 100%;
+    height: auto;
+    object-fit: cover;
+  }
+
+  &_colorsGroup {
+    grid-area: colors;
+    display: flex;
+    flex: 1;
+    justify-content: space-around;
+    flex-wrap: wrap;
+    gap: clamp(15px, 4.2vw, 50px);
+  }
+
+  &_colorItem {
+    position: relative;
+    background-color: #000;
+    width: clamp(80px, 10.3vw, 130px);
+    height: clamp(49px, 6.5vw, 80px);
+    clip-path: polygon(0 0, 80% 0, 100% 32%, 100% 100%, 0 100%, 0 0);
+    opacity: 1;
+    transition: all 0.65s ease-in-out;
+  }
+
+  &_backgroundWrapper {
+    position: absolute;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    top: 2px;
+    right: 2px;
+    width: clamp(76px, 10.3vw, 126px);
+    height: clamp(45px, 6.5vw, 76px);
+    background-color: #fff;
+    -webkit-clip-path: polygon(
+      16% 0,
+      100% 0,
+      100% 100%,
+      50% 100%,
+      0 100%,
+      0 16%
+    );
+    clip-path: polygon(0 0, 80% 0, 100% 32%, 100% 100%, 0 100%, 0 0);
+  }
+
+  &_colorText {
+    font-size: clamp(0.75rem, 1.5vw, 1.125rem);
+  }
+
+  &__colorItemHide {
+    opacity: 0;
+  }
+
+  &_footer {
+    display: flex;
+    margin-top: 16px;
+    gap: clamp(40px, 8.3vw, 100px);
+  }
+
+  &_footerItem {
+    flex: 1;
+  }
+
+  &_fontWrapper {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: flex-end;
+    gap: 40px;
+  }
+
+  &_letter {
+    font-weight: 700;
+    opacity: 1;
+    transition: all 0.65s ease-in-out;
+  }
+
+  &__letterHide {
+    opacity: 0;
+  }
+
+  @media screen and (max-width: $small) {
+    &_header {
+      grid-template-areas:
+        "title"
+        "img"
+        "colors";
+      grid-template-columns: 1fr;
+      grid-template-rows: repeat(3, auto);
+    }
+
+    &_footer {
+      flex-direction: column;
+    }
+
+    &_fontWrapper {
+      margin-top: 35px;
+    }
+
+    &_img {
+      display: block;
+      width: 70%;
+      margin: 0 auto;
+    }
+  }
+
+  @media screen and (max-width: $extraSmall) {
+    &_img {
+      width: 100%;
+    }
   }
 }

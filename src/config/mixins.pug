@@ -1,0 +1,23 @@
+mixin statisticsItem(item)
+  .sectionStatistics_item
+    p.sectionStatistics_itemValue= item.value
+    p.sectionStatistics_itemText= item.text
+
+mixin logoItem(logo)
+  .stackSection_circle.stackSection_hide
+    li.stackSection_logoWrapper
+      img(src=logo.link, alt=logo.alt)
+
+mixin stackGroup(item)
+  li.stackSection_stackItem 
+    ul.stackSection_hide
+      h3.stackSection_stackTitle=item.title 
+      for line in item.list
+        li.stackSection_stackLine= line
+
+mixin stage(stageData)
+  ul.stagesSection_column.stagesSection_hide
+    .stagesSection_stageWrapper
+      for item in stageData.list 
+        li.stagesSection_stageItem= item 
+    p.stagesSection_stageName= stageData.stage
