@@ -1,24 +1,49 @@
 -
   let pageTitle = "Надо брать"
   let logos = [{alt: "Logo wordpress",link: "images/wordpress.svg"},
-              {alt: "Logo", link: "images/5.svg"},
-              {alt: "Logo", link: "images/3.svg"}]
+    {alt: "Logo", link: "images/5.svg"},
+    {alt: "Logo", link: "images/3.svg"}]
   let stack = [{title: "Frontend", list: ["JAVA SCRIPT", "CSS 3","HTML 5"]},
-              {title: "Backend", list: ["WordPress", "SQL","PHP"]},
-              {title: "Integrations", list: ["Company internal services"]}]
+    {title: "Backend", list: ["WordPress", "SQL","PHP"]},
+    {title: "Integrations", list: ["Company internal services"]}]
   let stages = [{stage: "STAGE 1", list: ["Competitor analysis", "Target audience analysis","Sitemap development","Development of technical specifications. Preparation for SEO promotion"]},
-              {stage: "STAGE 2", list: ["Selection of references", "Prototyping","Design creation","Creating an adaptive version"]},
-              {stage: "STAGE 3", list: ["HTML /CSS site layout","Function programming","Installation and configuration of modules","Page load optimization","Website testing"]},
-              {stage: "STAGE 4", list: ["Basic content filling","Delivery of the project to the client","Site publishing"]}]
+    {stage: "STAGE 2", list: ["Selection of references", "Prototyping","Design creation","Creating an adaptive version"]},
+    {stage: "STAGE 3", list: ["HTML /CSS site layout","Function programming","Installation and configuration of modules","Page load optimization","Website testing"]},
+    {stage: "STAGE 4", list: ["Basic content filling","Delivery of the project to the client","Site publishing"]}]
   let statistics = [{value: "10 000", text: "> 10k clients"},
-                  {value: "30", text: "> 10 legal professionals"},
-                  {value: "2", text: "dual regulation (SPA & OISC)"},
-                  {value: "3", text: "highest level of accreditation with OISC"},
-                  {value: "500", text: "Legal 500 firm"},
-                  {value: "700", text: "> 700 reviews"},
-                  {value: "4.8/5", text: "> google ranking"},
-                  {value: "10", text: "> 10 years history"},]
+    {value: "30", text: "> 10 legal professionals"},
+    {value: "2", text: "dual regulation (SPA & OISC)"},
+    {value: "3", text: "highest level of accreditation with OISC"},
+    {value: "500", text: "Legal 500 firm"},
+    {value: "700", text: "> 700 reviews"},
+    {value: "4.8/5", text: "> google ranking"},
+    {value: "10", text: "> 10 years history"},]
   let services = ["Help for Ukranians", "Immigration", "Employment Law", "Business Law", "IP Law", "Family Law", "Criminal Law", "Extradition", "Tax Investigations",]
+
+mixin statisticsItem(item)
+  .sectionStatistics_item
+    p.sectionStatistics_itemValue= item.value
+    p.sectionStatistics_itemText= item.text
+
+mixin logoItem(logo)
+  .stackSection_circle.stackSection_hide
+    li.stackSection_logoWrapper
+      img(src=logo.link, alt=logo.alt)
+
+mixin stackGroup(item)
+  li.stackSection_stackItem 
+    ul.stackSection_hide
+      h3.stackSection_stackTitle=item.title 
+      for line in item.list
+        li.stackSection_stackLine= line
+
+mixin stage(stageData)
+  ul.stagesSection_column.stagesSection_hide
+    .stagesSection_stageWrapper
+      for item in stageData.list 
+        li.stagesSection_stageItem= item 
+    p.stagesSection_stageName= stageData.stage
+
 
 doctype html
 html(lang="en")
@@ -42,29 +67,19 @@ html(lang="en")
             h3 Website:
             a(href="https://sterling-law.co.uk") https://sterling-law.co.uk
         .mainSection_imageWrapper
-          img(src="images/main.png", alt="Main image").mainSection_image
+          img(src="images/main.png" alt="Main image").mainSection_image
     section.container.stackSection
       ul.stackSection_logosGroup
         for logo in logos
-          .stackSection_circle.stackSection_hide
-            li.stackSection_logoWrapper
-              img(src=logo.link, alt=logo.alt)
+          +logoItem(logo)
       ul.stackSection_stack
         for item in stack
-          li.stackSection_stackItem 
-            ul.stackSection_hide
-              h3.stackSection_stackTitle=item.title 
-              for line in item.list
-                li.stackSection_stackLine= line
+          +stackGroup(item)
     section.container.stagesSection
       h2.sectionTitleBright #Stages_of_work
       .stagesSection_wrapper
-        for stage in stages
-          ul.stagesSection_column.stagesSection_hide
-            .stagesSection_stageWrapper
-              for item in stage.list 
-                li.stagesSection_stageItem= item 
-            p.stagesSection_stageName= stage.stage
+        for stageData in stages
+          +stage(stageData)
     section.container.websiteCreationSection
       h2.sectionTitleBright #Website_creation
       p.sectionWebsiteCreator_content The new website design strengthens the company's image as a reliable and open partner.
@@ -74,16 +89,14 @@ html(lang="en")
       h2.sectionTitle Main page
       .mainPageSection_imageWrapper
         .pulseCircle.mainPageSection__circlePositionSecondary
-        img(src="images/for-bussiness.png", alt="image")
-        img(src="images/city.png", alt="city").mainPageSection__imageSecondary
+        img(src="images/for-bussiness.png" alt="image")
+        img(src="images/city.png" alt="city").mainPageSection__imageSecondary
     section.sectionStatistics
       .container
         h2.container.sectionStatistics_title Prefer to talk numbers? So do we:
         .sectionStatistics_content
           each item in statistics 
-            .sectionStatistics_item
-              p.sectionStatistics_itemValue= item.value
-              p.sectionStatistics_itemText= item.text
+            +statisticsItem(item)
     section.sectionServices.container
       each item in services
         .sectionServices_item 
@@ -93,19 +106,20 @@ html(lang="en")
         h2.sectionTitle Internal pages
         p.sectionInternal_headerText All internal pages are created in a single concept.
       .sectionInternal_imagesWrapper
-        .pulseCircle.sectionInternal__circleFirstPosition
-        .sectionInternal_item.sectionInternal__firstItemPosition
-          img(src="images/internal-1.png", alt="image")
-          img(src="images/internal-2.png", alt="image")
+        .pulseCircle.sectionInternal__circleFirst
+        .pulseCircle.sectionInternal__circleSecond
+        .pulseCircle.sectionInternal__circleThird
+        .pulseCircle.sectionInternal__circleFourth
+        .sectionInternal_item.sectionInternal__firstItem
+          img(src="images/internal-1.png" alt="image")
+          img(src="images/internal-2.png" alt="image")
         .sectionInternal_item
-          img(src="images/internal-3.png", alt="image")
-        .sectionInternal_item.sectionInternal__lastItemPosition
-          img(src="images/internal-4.png", alt="image")
-
-
+          img(src="images/internal-3.png" alt="image")
+        .sectionInternal_item.sectionInternal__lastItem
+          img(src="images/internal-4.png" alt="image")
 
 
 
       script
-            include js/showElementsWithDifferentOpacity.js
-            include js/showElements.js
+        include js/showElementsWithDifferentOpacity.js
+        include js/showElements.js
